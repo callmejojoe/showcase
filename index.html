@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="home-page">
+
+  <!-- Loading screen -->
+  <div class="loader-screen" aria-label="Loading">
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+  </div>
+
+  <!-- Fixed background video layer -->
+  <div class="video-bg">
+    <video muted loop playsinline preload="none">
+      <source src="assets/video/bg.mp4" type="video/mp4">
+    </video>
+    <div class="scrim"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo t-heading">JJ</a>
+
+      <div class="nav-pills t-small">
+        <a href="#work">Work</a>
+        <a href="pages/blog.html">Blog</a>
+        <a href="pages/contact.html">Contact</a>
+        <button class="theme-toggle theme-toggle-desktop" aria-label="Toggle theme">
+          <span class="theme-toggle-icon"></span>
+        </button>
+      </div>
+
+      <button class="nav-dropdown-trigger t-small" aria-label="Menu">☰</button>
+      <div class="nav-dropdown-menu">
+        <a href="#work">Work</a>
+        <a href="pages/blog.html">Blog</a>
+        <a href="pages/contact.html">Contact</a>
+        <hr class="rule" style="margin:0.5rem 0;">
+        <button class="theme-toggle">
+          <span class="theme-toggle-icon"></span>
+          <span class="t-small">Theme</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero container">
+    <div class="hero-content">
+      <p class="hero-index t-micro">01 — Portfolio</p>
+      <h1 class="hero-title t-display">
+        Building things that <span class="t-accent">matter</span>
+      </h1>
+      <div class="hero-bio t-body">
+        <p>Developer · Creator · Maker of things. Focused on video, 3D, and code — with a bias for shipping.</p>
+      </div>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary t-small">View Work</a>
+        <a href="pages/contact.html" class="btn t-small">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-banner">
+      <p class="t-micro" style="color:var(--ink-muted);">[ Featured work / banner / showcase image ]</p>
+    </div>
+  </header>
+
+  <hr class="rule">
+
+  <!-- Showcase: Work -->
+  <section id="work" class="showcase-section container">
+    <!-- categories injected by showcase.js -->
+  </section>
+
+  <hr class="rule">
+
+  <!-- Blog preview -->
+  <section id="blog" class="showcase-section container">
+    <h2 class="t-heading">Blog</h2>
+    <div class="blog-list">
+      <!-- entries injected by blog-parser.js -->
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- Contact (embedded instance) -->
+  <section id="contact" class="showcase-section container">
+    <h2 class="t-heading">Contact</h2>
+    <form class="contact-form" data-action="submit">
+      <div class="field">
+        <label for="cf-name" class="t-small">Name</label>
+        <input type="text" id="cf-name" name="name" placeholder="Your name" aria-label="Your name" required>
+      </div>
+      <div class="field">
+        <label for="cf-email" class="t-small">Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@example.com" aria-label="Your email address" required>
+      </div>
+      <div class="field">
+        <label for="cf-msg" class="t-small">Message</label>
+        <textarea id="cf-msg" name="message" placeholder="Your message..." aria-label="Your message" required></textarea>
+      </div>
+      <!-- honeypot -->
+      <div class="field hp" aria-hidden="true">
+        <label for="cf-hp">Leave blank</label>
+        <input type="text" id="cf-hp" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <button type="submit" class="btn-submit t-small">Send Message</button>
+      <p class="form-msg t-small" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy t-small">&copy; 2026 JJ. All rights reserved.</p>
+      <div class="footer-links t-small">
+        <a href="pages/terms.html">Terms of Service</a>
+        <a href="pages/privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Go to top button -->
+  <button class="go-top" aria-label="Scroll to top">↑</button>
+
+  <noscript>
+    <div style="padding:4rem 2rem;text-align:center;color:#e8e0d8;font-family:sans-serif;">
+      <h1>JavaScript Required</h1>
+      <p>This portfolio uses JavaScript for navigation, content loading, and interactive features. Please enable JavaScript to view the site.</p>
+    </div>
+  </noscript>
+
+  <!-- Scripts -->
+  <script type="module">
+    import { initTheme }       from './js/theme.js';
+    import { initLoader }      from './js/loader.js';
+    import { initHero }        from './js/hero.js';
+    import { initHeroMorph }   from './js/hero-morph.js';
+    import { initShowcase }    from './js/showcase.js';
+    import { initBlog }        from './js/blog-parser.js';
+    import { initContactForm } from './js/contact-form.js';
+    import { initNav }         from './js/nav.js';
+    import { initGoTop }       from './js/scroll-utils.js';
+    import { emit }            from './js/state.js';
+
+    initTheme();
+    initLoader();
+    initHero();
+    initHeroMorph();
+    initNav();
+    initGoTop();
+
+    /* Load showcase and blog content */
+    Promise.all([
+      initShowcase(),
+      initBlog({ listContainer: document.querySelector('.blog-list'), basePath: '', linkBase: 'pages/blog.html' }),
+    ]).then(() => {
+      emit('content:ready');
+    });
+
+    /* Wire contact form (embedded section) */
+    initContactForm();
+  </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <div class="video-bg">
+    <video muted loop playsinline preload="none">
+      <source src="../assets/video/bg.mp4" type="video/mp4">
+    </video>
+    <div class="scrim"></div>
+  </div>
+
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo t-heading">JJ</a>
+      <div class="nav-pills t-small">
+        <a href="../index.html#work">Work</a>
+        <a href="./blog.html">Blog</a>
+        <a href="./contact.html">Contact</a>
+        <button class="theme-toggle theme-toggle-desktop" aria-label="Toggle theme">
+          <span class="theme-toggle-icon"></span>
+        </button>
+      </div>
+      <button class="nav-dropdown-trigger t-small" aria-label="Menu">☰</button>
+      <div class="nav-dropdown-menu">
+        <a href="../index.html#work">Work</a>
+        <a href="./blog.html">Blog</a>
+        <a href="./contact.html">Contact</a>
+        <hr class="rule" style="margin:0.5rem 0;">
+        <button class="theme-toggle">
+          <span class="theme-toggle-icon"></span>
+          <span class="t-small">Theme</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container" style="padding:4rem 0;max-width:800px;">
+    <h1 class="t-display">Terms of <span class="t-accent">Service</span></h1>
+    <p class="t-body" style="color:var(--ink-muted);margin:1.5rem 0 3rem;">Last updated: October 1, 2026</p>
+
+    <div class="t-body" style="line-height:1.8;">
+      <h2 class="t-heading" style="margin-top:2rem;margin-bottom:1rem;">1. Agreement to Terms</h2>
+      <p>By accessing this website, you agree to be bound by these Terms of Service and all applicable laws and regulations.</p>
+
+      <h2 class="t-heading" style="margin-top:2rem;margin-bottom:1rem;">2. Use License</h2>
+      <p>Permission is granted to temporarily view the materials on this website for personal, non-commercial use only.</p>
+
+      <h2 class="t-heading" style="margin-top:2rem;margin-bottom:1rem;">3. Disclaimer</h2>
+      <p>The materials on this website are provided "as is". We make no warranties, expressed or implied, and hereby disclaim all other warranties.</p>
+
+      <h2 class="t-heading" style="margin-top:2rem;margin-bottom:1rem;">4. Limitations</h2>
+      <p>In no event shall we or our suppliers be liable for any damages arising out of the use or inability to use the materials on this website.</p>
+
+      <h2 class="t-heading" style="margin-top:2rem;margin-bottom:1rem;">5. Contact</h2>
+      <p>If you have any questions about these Terms, please <a href="./contact.html" style="color:var(--accent);">contact us</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy t-small">&copy; 2026 JJ. All rights reserved.</p>
+      <div class="footer-links t-small">
+        <a href="./terms.html">Terms of Service</a>
+        <a href="./privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <button class="go-top" aria-label="Scroll to top">↑</button>
+
+  <script type="module">
+    import { initTheme } from '../js/theme.js';
+    import { initNav }   from '../js/nav.js';
+    import { initGoTop } from '../js/scroll-utils.js';
+    initTheme();
+    initNav();
+    initGoTop();
+  </script>
+</body>
+</html>

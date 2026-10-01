@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital@1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+  <!-- Fixed background video layer -->
+  <div class="video-bg">
+    <video muted loop playsinline preload="none">
+      <source src="../assets/video/bg.mp4" type="video/mp4">
+    </video>
+    <div class="scrim"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <div class="container nav-inner">
+      <a href="../index.html" class="nav-logo t-heading">JJ</a>
+      <div class="nav-pills t-small">
+        <a href="../index.html#work">Work</a>
+        <a href="./blog.html" class="active">Blog</a>
+        <a href="./contact.html">Contact</a>
+        <button class="theme-toggle theme-toggle-desktop" aria-label="Toggle theme">
+          <span class="theme-toggle-icon"></span>
+        </button>
+      </div>
+      <button class="nav-dropdown-trigger t-small" aria-label="Menu">☰</button>
+      <div class="nav-dropdown-menu">
+        <a href="../index.html#work">Work</a>
+        <a href="./blog.html">Blog</a>
+        <a href="./contact.html">Contact</a>
+        <hr class="rule" style="margin:0.5rem 0;">
+        <button class="theme-toggle">
+          <span class="theme-toggle-icon"></span>
+          <span class="t-small">Theme</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog content -->
+  <main class="container" style="padding-top:4rem; padding-bottom:4rem;">
+    <div class="blog-nav" style="display:none;">
+      <a href="./blog.html">← Back to all posts</a>
+    </div>
+    <div class="blog-list">
+      <!-- listing injected by blog-parser.js -->
+    </div>
+    <div class="blog-post">
+      <!-- single post injected by blog-parser.js -->
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-copy t-small">&copy; 2026 JJ. All rights reserved.</p>
+      <div class="footer-links t-small">
+        <a href="./terms.html">Terms of Service</a>
+        <a href="./privacy.html">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Go to top button -->
+  <button class="go-top" aria-label="Scroll to top">↑</button>
+
+  <noscript>
+    <div style="padding:4rem 2rem;text-align:center;color:#e8e0d8;font-family:sans-serif;">
+      <p>JavaScript is required to view this page.</p>
+    </div>
+  </noscript>
+
+  <script type="module">
+    import { initTheme } from '../js/theme.js';
+    import { initHero }  from '../js/hero.js';
+    import { initBlog }  from '../js/blog-parser.js';
+    import { initNav }   from '../js/nav.js';
+    import { initGoTop } from '../js/scroll-utils.js';
+
+    initTheme();
+    initHero();
+    initNav();
+    initGoTop();
+
+    initBlog({
+      listContainer: document.querySelector('.blog-list'),
+      postContainer: document.querySelector('.blog-post'),
+      navContainer:  document.querySelector('.blog-nav'),
+      basePath: '../',
+      linkBase: 'blog.html',
+    });
+  </script>
+</body>
+</html>

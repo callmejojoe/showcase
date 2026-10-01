@@ -1,0 +1,12 @@
+{
+  "repos": [
+    {
+      "name": "showcase",
+      "description": "This portfolio site",
+      "language": "JavaScript",
+      "stars": 0,
+      "url": "https://github.com/callmejojoe/showcase"
+    }
+  ],
+  "_note": "Static fallback used when GitHub API is unavailable or rate-limited. Update manually."
+}
