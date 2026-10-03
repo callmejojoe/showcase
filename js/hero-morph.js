@@ -64,8 +64,13 @@ export function initHeroMorph() {
 
       /* nav pills fade out, dropdown fades in */
       if (pills) pills.style.opacity = 1 - t;
+      // for the sake of debugging
+      // console.log(pills.style.opacity);
       if (dropdown) {
         dropdown.style.opacity = t;
+        console.log(dropdown.style.opacity);
+        console.log(!dropdown.style.opacity == pills.style.opacity);
+        dropdown.style.display = t > 0.9 ? 'block' : 'none';
         dropdown.style.pointerEvents = t > 0.5 ? 'auto' : 'none';
       }
 
