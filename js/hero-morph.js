@@ -67,11 +67,13 @@ export function initHeroMorph() {
       // for the sake of debugging
       // console.log(pills.style.opacity);
       if (dropdown) {
-        dropdown.style.opacity = t;
-        console.log(dropdown.style.opacity);
-        console.log(!dropdown.style.opacity == pills.style.opacity);
-        dropdown.style.display = t > 0.9 ? 'block' : 'none';
-        dropdown.style.pointerEvents = t > 0.5 ? 'auto' : 'none';
+        dropdown.style.opacity = window.innerWidth <= 768 ? 1 : t;
+        // console.log(dropdown.style.opacity);
+        // console.log(!dropdown.style.opacity == pills.style.opacity);
+        dropdown.style.display = window.innerWidth <= 768 ? 'block' : t > 0.9 ? 'block' : 'none';
+        // dropdown.style.display = t > 0.9 ? 'block' : 'none';
+        dropdown.style.pointerEvents = window.innerWidth <= 768 ? 'auto' : t > 0.5 ? 'auto' : 'none';
+        // dropdown.style.pointerEvents = t > 0.5 ? 'auto' : 'none';
       }
 
       /* scroll cue fade */
