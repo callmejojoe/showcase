@@ -29,7 +29,9 @@ export function initHeroMorph() {
   const endSize     = Math.max(startSize * 0.35, 18); /* floor at 18px */
 
   const startPad = 1.2; /* rem */
+  const startPadAlt = 0.5 /*also rem*/
   const endPad   = 0.5; /* rem */
+  const endPadAlt   = 0.1; /* rem */
 
   let ticking = false;
 
@@ -59,7 +61,7 @@ export function initHeroMorph() {
       }
 
       /* nav bar padding */
-      const pad = startPad + (endPad - startPad) * t;
+      const pad = startPadAlt + (endPadAlt - startPadAlt) * t;
       nav.style.padding = pad + 'rem 0';
 
       /* nav pills fade out, dropdown fades in */

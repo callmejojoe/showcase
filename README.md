@@ -42,8 +42,3 @@ A studio-editorial portfolio built with vanilla JS, no frameworks or bundlers.
     ├── fallback/                 # fallback gradient assets
     └── icons/                    # social icons
 ```
-
-
-## License
-
-MIT

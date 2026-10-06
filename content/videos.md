@@ -11,6 +11,10 @@
   date: 2026-01-15
   tags: edit, motion
 
+- title: Trial edit for Yosh
+  youtube_id: 7BNv0IrtWyE
+  date: 2025-12-10
+  tag: short, instagram, reel
 ## 3D
 
 - title: Sample Render
