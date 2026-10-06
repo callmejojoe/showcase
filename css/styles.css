@@ -152,7 +152,7 @@ ul, ol { list-style: none; }
 .video-bg.fallback {
   background: radial-gradient(
     ellipse at 30% 40%,
-    rgba(60, 30, 28, 0.6) 0%,
+    rgba(60, 30, 28, 0.863) 0%,
     var(--paper) 70%
   );
 }
@@ -167,7 +167,7 @@ body:not(.home-page) .video-bg video {
 body:not(.home-page) .video-bg {
   background: radial-gradient(
     ellipse at 30% 40%,
-    rgba(60, 30, 28, 0.6) 0%,
+    rgb(79, 34, 31) 0%,
     var(--paper) 70%
   );
 }
@@ -182,7 +182,7 @@ body:not(.home-page) .video-bg {
   width: 100%;
   z-index: 100;
   padding: 1.2rem 0;
-  background: rgba(var(--paper-rgb), 0.75);
+  background: rgba(var(--paper-rgb), 0.25);
   backdrop-filter: blur(var(--blur));
   -webkit-backdrop-filter: blur(var(--blur));
   transition: padding 0.1s ease-out, background 0.2s;
@@ -242,18 +242,18 @@ body:not(.home-page) .video-bg {
   font-size: 1.4rem;
   cursor: pointer;
   margin: 0% 1%;
-  padding: 0.25% 0.5%;
+  padding: 0.5% 1%;
   color: var(--ink);
-  background: rgba(var(--paper-rgb), 0.2);
+  /* background: rgba(var(--paper-rgb), 0.2); */
   border-radius: 10%;
-  border: 1px solid var(--line);
+  /* border: 1px solid var(--line); */
 }
 
 .nav-dropdown-menu {
   position: absolute;
   top: 100%;
   right: 0;
-  background: rgba(var(--paper-rgb), 0.98);
+  background: rgba(var(--paper-rgb), 0.85);
   border: 1px solid var(--line);
   border-radius: 3px;
   padding: 1rem 0;
@@ -623,6 +623,8 @@ body:not(.home-page) .video-bg {
 .blog-list {
   display: flex;
   flex-direction: column;
+  margin: 0px auto;
+  max-width: 1000px;
   gap: 2rem;
 }
 
@@ -670,10 +672,11 @@ body:not(.home-page) .video-bg {
 
 .footer-inner {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   gap: 2rem;
+  margin: 0px 2rem;
 }
 
 .footer-links {
@@ -772,7 +775,7 @@ body.light-theme {
   --accent: #c4453a;
   --accent-hover: #d8564b;
   --line: rgba(26,26,26,0.15);
-  --scrim: rgba(245,243,240,0.75);
+  --scrim: rgba(241, 235, 227, 0.75);
 }
 
 /* --- Blog navigation -------------------------------------- */
@@ -807,6 +810,10 @@ body.light-theme {
   .hero-banner {
     order: -1;
     min-height: 250px;
+    margin: 4px;
+  }
+  .hero-content {
+    margin: 4px;
   }
   .footer-inner {
     flex-direction: column;
