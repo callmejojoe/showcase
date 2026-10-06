@@ -55,21 +55,15 @@ function createCategory(container, { label, count, items, renderItem }) {
 /* --- Card renderers --------------------------------------- */
 
 function renderVideoCard(item) {
-  const card = document.createElement('a');
+  const card = document.createElement('div');
   card.className = 'work-card';
-  card.href = `https://www.youtube.com/watch?v=${item.youtube_id}`;
-  card.target = '_blank';
-  card.rel = 'noopener';
 
   card.innerHTML = `
-    <div class="thumb clip-torn">
-      <img src="https://img.youtube.com/vi/${item.youtube_id}/mqdefault.jpg"
-           alt="${item.title}" loading="lazy">
-    </div>
-    <div class="play-overlay t-small">▶ Play</div>
-    <div class="card-info">
-      <p class="t-body">${item.title}</p>
-      <p class="t-micro">${item.date || ''}</p>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/${item.youtube_id}"
+              allowfullscreen
+              loading="lazy"
+              title="${item.title}"></iframe>
     </div>
   `;
   return card;
