@@ -12,11 +12,15 @@ const CACHE_KEY  = 'gh_repos';
 const CACHE_TTL  = 1000 * 60 * 30; /* 30 minutes */
 const API_URL    = 'https://api.github.com/users/callmejojoe/repos?sort=updated&per_page=20';
 const FALLBACK   = 'content/github-fallback.json';
+const WHITELIST  = 'content/github-whitelist.json';
 
 export async function fetchRepos() {
+  /* Load whitelist first */
+  const whitelist = await loadWhitelist();
+
   /* 1. try localStorage cache first */
   const cached = loadCache();
-  if (cached) return cached;
+  if (cached) return filterByWhitelist(cached, whitelist);
 
   /* 2. try live API */
   try {
@@ -25,10 +29,11 @@ export async function fetchRepos() {
     const data = await res.json();
     const repos = normalize(data);
     saveCache(repos);
-    return repos;
+    return filterByWhitelist(repos, whitelist);
   } catch (_) {
     /* 3. static fallback */
-    return loadFallback();
+    const fallback = await loadFallback();
+    return filterByWhitelist(fallback, whitelist);
   }
 }
 
@@ -70,4 +75,23 @@ async function loadFallback() {
   } catch (_) {
     return [];
   }
+}
+
+async function loadWhitelist() {
+  try {
+    const res = await fetch(WHITELIST);
+    const data = await res.json();
+    return data.repos || [];
+  } catch (_) {
+    /* If whitelist doesn't exist or fails to load, show all repos */
+    return null;
+  }
+}
+
+function filterByWhitelist(repos, whitelist) {
+  /* If no whitelist, return all repos */
+  if (!whitelist || whitelist.length === 0) return repos;
+
+  /* Filter repos to only those in the whitelist */
+  return repos.filter(repo => whitelist.includes(repo.name));
 }

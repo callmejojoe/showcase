@@ -31,6 +31,18 @@ const lightPalette = {
   '--blur':       '18px',
 };
 
+const gazettePalette = {
+  '--ink':        '#1a1208',
+  '--ink-muted':  '#6b5a3e',
+  '--paper':      '#ede0c4',
+  '--paper-rgb':  '237,224,196',
+  '--accent':     '#8b1a1a',
+  '--accent-hover':'#a0720c',
+  '--line':       '#c4a86b',
+  '--scrim':      'rgba(237,224,196,0.85)',
+  '--blur':       '12px',
+};
+
 function applyTheme(palette) {
   const root = document.documentElement.style;
   for (const [prop, value] of Object.entries(palette)) {
@@ -43,6 +55,9 @@ export function initTheme() {
   if (saved === 'light') {
     document.body.classList.add('light-theme');
     applyTheme(lightPalette);
+  } else if (saved === 'gazette') {
+    document.body.classList.add('gazette-theme');
+    applyTheme(gazettePalette);
   } else {
     applyTheme(darkPalette);
   }
@@ -50,12 +65,32 @@ export function initTheme() {
 }
 
 export function toggleTheme() {
-  const isLight = document.body.classList.toggle('light-theme');
-  applyTheme(isLight ? lightPalette : darkPalette);
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  emit('theme:changed', isLight ? 'light' : 'dark');
+  const current = getTheme();
+
+  // Cycle: dark → light → gazette → dark
+  document.body.classList.remove('light-theme', 'gazette-theme');
+
+  let newTheme, newPalette;
+  if (current === 'dark') {
+    newTheme = 'light';
+    newPalette = lightPalette;
+    document.body.classList.add('light-theme');
+  } else if (current === 'light') {
+    newTheme = 'gazette';
+    newPalette = gazettePalette;
+    document.body.classList.add('gazette-theme');
+  } else {
+    newTheme = 'dark';
+    newPalette = darkPalette;
+  }
+
+  applyTheme(newPalette);
+  localStorage.setItem('theme', newTheme);
+  emit('theme:changed', newTheme);
 }
 
 export function getTheme() {
-  return document.body.classList.contains('light-theme') ? 'light' : 'dark';
+  if (document.body.classList.contains('light-theme')) return 'light';
+  if (document.body.classList.contains('gazette-theme')) return 'gazette';
+  return 'dark';
 }

@@ -12,9 +12,9 @@ import { fetchRepos } from './github.js';
 /**
  * Render a collapsible category into a container.
  * @param {HTMLElement} container
- * @param {{ label: string, count: number, items: Array, renderItem: function }} config
+ * @param {{ label: string, count: number, items: Array, renderItem: function, isOpen: boolean }} config
  */
-function createCategory(container, { label, count, items, renderItem }) {
+function createCategory(container, { label, count, items, renderItem, isOpen = false }) {
   const section = document.createElement('div');
   section.className = 'category';
 
@@ -43,6 +43,12 @@ function createCategory(container, { label, count, items, renderItem }) {
   section.appendChild(header);
   section.appendChild(body);
   container.appendChild(section);
+
+  /* Set initial open state */
+  if (isOpen) {
+    header.classList.add('open');
+    body.classList.add('open');
+  }
 
   /* toggle */
   header.addEventListener('click', () => {
@@ -104,13 +110,16 @@ export async function initShowcase() {
     (videosByCategory[v.category] ||= []).push(v);
   });
 
+  let isFirstCategory = true;
   for (const [cat, items] of Object.entries(videosByCategory)) {
     createCategory(container, {
       label: cat,
       count: items.length,
       items,
       renderItem: renderVideoCard,
+      isOpen: isFirstCategory, // Open the first category by default
     });
+    isFirstCategory = false;
   }
 
   /* GitHub repos */
