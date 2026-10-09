@@ -658,7 +658,7 @@ body:not(.home-page) .video-bg {
   display: flex;
   flex-direction: column;
   margin: 0px auto;
-  max-width: 1000px;
+  max-width: 80vw;
   gap: 2rem;
 }
 
@@ -670,7 +670,7 @@ body:not(.home-page) .video-bg {
 .blog-entry:last-child { border-bottom: none; }
 
 .blog-post {
-  max-width: 680px;
+  max-width: 80vw;
   margin: 0 auto;
 }
 
@@ -694,6 +694,180 @@ body:not(.home-page) .video-bg {
   display: block;
   padding: 1rem;
   overflow-x: auto;
+}
+
+/* Markdown extended styles */
+.blog-post blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--ink-muted);
+  font-style: italic;
+}
+
+.blog-post ul, .blog-post ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.blog-post ul {
+  list-style: disc;
+}
+
+.blog-post ol {
+  list-style: decimal;
+}
+
+.blog-post li {
+  margin: 0.5rem 0;
+}
+
+.blog-post table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.blog-post th {
+  background: rgba(var(--accent), 0.1);
+  font-weight: 600;
+  text-align: left;
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+}
+
+.blog-post td {
+  padding: 0.7rem;
+  border: 1px solid var(--line);
+}
+
+.blog-post tr:nth-child(even) {
+  background: rgba(var(--paper-rgb), 0.5);
+}
+
+.blog-post hr {
+  border: none;
+  border-top: 1px solid var(--line);
+  margin: 2rem 0;
+}
+
+.blog-post img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 3px;
+  margin: 1.5rem 0;
+  border: 1px solid var(--line);
+}
+
+/* Obsidian-specific styles */
+.blog-post mark {
+  background: var(--accent);
+  color: var(--paper);
+  padding: 0.1em 0.3em;
+  border-radius: 2px;
+}
+
+.blog-post del {
+  color: var(--ink-muted);
+  text-decoration: line-through;
+}
+
+.blog-post .wiki-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent);
+}
+
+.blog-post .wiki-link:hover {
+  border-bottom-style: solid;
+}
+
+.blog-post .tag {
+  display: inline-block;
+  background: rgba(var(--accent), 0.1);
+  color: var(--accent);
+  padding: 0.2em 0.5em;
+  border-radius: 3px;
+  font-size: 0.85em;
+  font-weight: 500;
+  margin: 0 0.2em;
+}
+
+.blog-post .task-list-item {
+  list-style: none;
+  margin-left: -2rem;
+  padding-left: 2rem;
+}
+
+.blog-post .task-list-item input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+.blog-post .callout {
+  border-left: 3px solid var(--accent);
+  padding: 1rem;
+  margin: 1.5rem 0;
+  background: rgba(var(--accent), 0.05);
+  border-radius: 3px;
+}
+
+.blog-post .callout-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+}
+
+.blog-post .callout-content {
+  color: var(--ink);
+}
+
+.blog-post .callout-note {
+  border-left-color: #3b82f6;
+}
+
+.blog-post .callout-note .callout-title {
+  color: #3b82f6;
+}
+
+.blog-post .callout-warning {
+  border-left-color: #f59e0b;
+  background: rgba(245, 158, 11, 0.05);
+}
+
+.blog-post .callout-warning .callout-title {
+  color: #f59e0b;
+}
+
+.blog-post .callout-danger {
+  border-left-color: #ef4444;
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.blog-post .callout-danger .callout-title {
+  color: #ef4444;
+}
+
+.blog-post .callout-success {
+  border-left-color: #10b981;
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.blog-post .callout-success .callout-title {
+  color: #10b981;
+}
+
+.blog-post .footnote-ref {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.blog-post .footnote-ref a {
+  color: var(--accent);
+  text-decoration: none;
 }
 
 /* --- Footer ----------------------------------------------- */
@@ -846,14 +1020,14 @@ body.light-theme {
   .grid-3 { grid-template-columns: 1fr; }
   .hero {
     flex-direction: column;
+    justify-content: space-between;
     padding: 4rem 0 2rem;
   }
   .hero-banner {
     order: -1;
-    margin-top: 6rem;
-    max-height: 20vh;
+    max-height: 50vw;
     width: 100%;
-    margin: 4px;
+    margin: 5vw 4px 4px 4px;
   }
   .hero-content {
     margin: 4px;

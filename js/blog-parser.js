@@ -91,20 +91,24 @@ export async function initBlog({ listContainer, postContainer, navContainer, bas
   const postSlug = params.get('post');
 
   const posts = await loadPosts(basePath);
+  const bannerContainer = document.querySelector('.blog-banner');
 
   if (postSlug && postContainer) {
     const post = posts.find(p => p.slug === postSlug);
     if (post) {
       renderPost(postContainer, post);
       if (listContainer) listContainer.style.display = 'none';
+      if (bannerContainer) bannerContainer.style.display = 'none';
       if (navContainer) navContainer.style.display = 'block';
     } else {
       /* post not found — show listing */
       if (listContainer) renderListing(listContainer, posts, linkBase);
+      if (bannerContainer) bannerContainer.style.display = 'flex';
       if (navContainer) navContainer.style.display = 'none';
     }
   } else {
     if (listContainer) renderListing(listContainer, posts, linkBase);
+    if (bannerContainer) bannerContainer.style.display = 'flex';
     if (postContainer) postContainer.style.display = 'none';
     if (navContainer) navContainer.style.display = 'none';
   }

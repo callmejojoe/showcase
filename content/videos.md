@@ -15,9 +15,21 @@
   youtube_id: 7BNv0IrtWyE
   date: 2025-12-10
   tag: short, instagram, reel
+
+- title: Trial edit for Yosh
+  youtube_id: aH1dWrBMZYk
+  date: 2025-12-10
+  tag: short, instagram, reel
 ## 3D
 
 - title: Sample Render
   youtube_id: dQw4w9WgXcQ
   date: 2026-02-20
   tags: 3d, blender
+
+## VFX
+
+<!-- - title: test stuff
+  youtube_id: ib345hkH4cT
+  date: 2026-02-20
+  tags: yo bro -->
