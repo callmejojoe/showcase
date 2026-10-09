@@ -260,6 +260,39 @@ body.gazette-theme .btn-submit:hover {
   box-shadow: 3px 5px 0 rgba(26, 18, 8, 0.2);
 }
 
+/* Contact CTA buttons */
+body.gazette-theme .contact-cta-buttons a.btn {
+  background: #f4e9d0;
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  color: var(--ink);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.7rem 1.5rem;
+  box-shadow: 2px 3px 0 rgba(26, 18, 8, 0.15);
+  transition: all 0.2s;
+}
+
+body.gazette-theme .contact-cta-buttons a.btn:hover {
+  background: var(--ink);
+  color: #f4e9d0;
+  border-color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 3px 5px 0 rgba(26, 18, 8, 0.25);
+}
+
+body.gazette-theme .contact-cta-buttons a.btn svg {
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+body.gazette-theme .contact-cta p {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-style: italic;
+}
+
 /* --- Footer ----------------------------------------------- */
 
 body.gazette-theme .site-footer {
