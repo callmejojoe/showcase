@@ -351,6 +351,7 @@ body:not(.home-page) .video-bg {
 .hero-content {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   flex: 1;
 }
 
@@ -389,7 +390,7 @@ body:not(.home-page) .video-bg {
   -webkit-backdrop-filter: blur(var(--blur));
   overflow: hidden;
   width: 100%;
-  max-height: 40vh;
+  max-height: 50vh;
 }
 
 .hero-banner img {
@@ -1025,12 +1026,12 @@ body.light-theme {
   }
   .hero-banner {
     order: -1;
-    max-height: 50vw;
+    max-height: 60vw;
     width: 100%;
     margin: 5vw 4px 4px 4px;
   }
   .hero-content {
-    margin: 4px;
+    margin: 6px;
   }
   .footer-inner {
     flex-direction: column;
@@ -1045,4 +1046,11 @@ body.light-theme {
   .showcase-section {
     padding: 1rem;
   }
+}
+
+/*----------test----------*/
+@media (min-width: 769px) {
+.contact-box {
+  padding-left: 2rem;
+}
 }
