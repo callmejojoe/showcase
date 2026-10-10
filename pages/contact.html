@@ -15,6 +15,13 @@
 </head>
 <body>
 
+  <!-- Loading screen -->
+  <div class="loader-screen" aria-label="Loading">
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+  </div>
+
   <!-- Fixed background video layer -->
   <div class="video-bg">
     <video muted loop playsinline preload="none">
@@ -128,12 +135,15 @@
   </noscript>
 
   <script type="module">
+    import { initLoader }      from '../js/loader.js';
+    import { emit }            from '../js/state.js';
     import { initTheme }       from '../js/theme.js';
     import { initHero }        from '../js/hero.js';
     import { initContactForm } from '../js/contact-form.js';
     import { initNav }         from '../js/nav.js';
     import { initGoTop }       from '../js/scroll-utils.js';
 
+    initLoader();
     initTheme();
     initHero();
     initContactForm();

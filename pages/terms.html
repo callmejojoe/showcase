@@ -15,6 +15,13 @@
 </head>
 <body>
 
+  <!-- Loading screen -->
+  <div class="loader-screen" aria-label="Loading">
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+    <div class="loader-dot"></div>
+  </div>
+
   <div class="video-bg">
     <video muted loop playsinline preload="none">
       <source src="../assets/video/bg.mp4" type="video/mp4">
@@ -84,9 +91,12 @@
   <button class="go-top" aria-label="Scroll to top">↑</button>
 
   <script type="module">
+    import { initLoader }      from '../js/loader.js';
+    import { emit }            from '../js/state.js';
     import { initTheme } from '../js/theme.js';
     import { initNav }   from '../js/nav.js';
     import { initGoTop } from '../js/scroll-utils.js';
+    initLoader();
     initTheme();
     initNav();
     initGoTop();
