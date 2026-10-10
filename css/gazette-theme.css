@@ -90,7 +90,7 @@ body.gazette-theme .nav-logo img {
 
 body.gazette-theme .nav-dropdown-trigger {
   color: var(--paper);
-  border: 1px solid var(--line);
+  border: 0px solid var(--line);
 }
 
 body.gazette-theme .nav-dropdown-menu {
@@ -392,4 +392,9 @@ body.gazette-theme .video-bg .scrim {
     border-width: 1px;
     border-top-width: 3px;
   }
+}
+
+/*-----test-----*/
+.theme-toggle-icon svg {
+  fill: var(--accent);
 }

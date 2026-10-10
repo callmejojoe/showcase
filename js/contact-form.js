@@ -6,8 +6,8 @@
  * Endpoint URLs are placeholders until the real ones are set up.
  */
 
-const DISCORD_WEBHOOK = ''; /* set before launch */
-const SHEETS_ENDPOINT = ''; /* Google Apps Script URL — set before launch */
+const DISCORD_WEBHOOK = 'https://discord.com/api/webhooks/1558387056932167700/2v_IyEexPxXvpqaPmK0jKQLcB24yKYPRsSpf7VwvuKh32RUi5zCm6vjkM314Vog-Zmlq'; /* set before launch */
+const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxOaXq4UmrkNFN0LpAMQbueGtsRFt4QKQ7DV1WZA5FlL8h4FMh1G2Jq5QsNV2KtlRo7_g/exec'; /* Google Apps Script URL — set before launch */
 
 export function initContactForm() {
   const form = document.querySelector('.contact-form');
@@ -61,20 +61,32 @@ async function sendDiscord(payload) {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      content: `**New contact**\nName: ${payload.name}\nEmail: ${payload.email}\nMessage: ${payload.message}\nTime: ${payload.ts}`,
+      content: `**New contact**\nName: ${payload.name}\nEmail: ${payload.email}\nMessage: ${payload.message}\nTime: ${payload.ts}`.slice(0, 1999),
+      allowed_mentions: {parse: []},
     }),
   });
   if (!res.ok) throw new Error(res.status);
 }
 
+// async function sendSheets(payload) {
+//   if (!SHEETS_ENDPOINT) throw new Error('No Sheets endpoint configured');
+//   const res = await fetch(SHEETS_ENDPOINT, {
+//     method: 'POST',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify(payload),
+//   });
+//   if (!res.ok) throw new Error(res.status);
+// }
+
 async function sendSheets(payload) {
   if (!SHEETS_ENDPOINT) throw new Error('No Sheets endpoint configured');
-  const res = await fetch(SHEETS_ENDPOINT, {
+  await fetch(SHEETS_ENDPOINT, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    mode: 'no-cors',                        // response will be opaque
+    headers: { 'Content-Type': 'text/plain' }, // avoids the preflight
     body: JSON.stringify(payload),
   });
-  if (!res.ok) throw new Error(res.status);
+  // no res.ok check: opaque responses always look "failed" even when they worked
 }
 
 function showMsg(el, text, type) {
